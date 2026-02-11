@@ -13,7 +13,18 @@ public class ReconstructionController : ControllerBase
     {
         _service = service;
     }
+    
+    [HttpGet("env-test")]
+    public IActionResult EnvTest()
+    {
+        return Ok(new {
+            meshy = Environment.GetEnvironmentVariable("MESHY_API_KEY") != null,
+            cloud = Environment.GetEnvironmentVariable("CLOUDINARY_API_KEY") != null
+        });
+    }
 
+    
+    
     [HttpPost("upload")]
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> Upload([FromForm] UploadArtifactRequest request)
