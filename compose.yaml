@@ -1,0 +1,31 @@
+﻿services:
+  artifactreconstruction.apı:
+    image: artifactreconstruction.apı
+    build:
+      context: .
+      dockerfile: src/ArtifactReconstruction.API/Dockerfile
+
+  artifactreconstruction.application:
+    image: artifactreconstruction.application
+    build:
+      context: .
+      dockerfile: src/ArtifactReconstruction.Application/Dockerfile
+
+  artifactreconstruction.domain:
+    image: artifactreconstruction.domain
+    build:
+      context: .
+      dockerfile: src/ArtifactReconstruction.Domain/Dockerfile
+
+  artifactreconstruction.ınfrastructure:
+    image: artifactreconstruction.ınfrastructure
+    build:
+      context: .
+      dockerfile: src/ArtifactReconstruction.Infrastructure/Dockerfile
+
+  artifactreconstruction.tests:
+    image: artifactreconstruction.tests
+    build:
+      context: .
+      dockerfile: tests/ArtifactReconstruction.Tests/Dockerfile
+
