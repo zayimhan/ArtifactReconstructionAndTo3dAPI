@@ -17,11 +17,13 @@ public class ReconstructionController : ControllerBase
     [HttpGet("env-test")]
     public IActionResult EnvTest()
     {
-        return Ok(new {
-            meshy = Environment.GetEnvironmentVariable("MESHY_API_KEY") != null,
-            cloud = Environment.GetEnvironmentVariable("CLOUDINARY_API_KEY") != null
+        return Ok(new
+        {
+            meshy = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("Meshy__ApiKey")),
+            cloud = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("Cloudinary__CloudName"))
         });
     }
+
 
     
     

@@ -8,6 +8,7 @@ using ArtifactReconstruction.Infrastructure.OpenAI;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // --- 0. Configuration (Render ENV desteği) ---
 builder.Configuration
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -70,11 +71,9 @@ var app = builder.Build();
 
 app.UseStaticFiles();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseCors("AllowAll");
 
